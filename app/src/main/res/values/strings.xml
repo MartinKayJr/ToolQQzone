@@ -1,3 +1,43 @@
 <resources>
     <string name="app_name">ToolQ-Qzone</string>
+    <string name="login_tip_text">扫码登陆</string>
+
+    <string name="tab1">信息</string>
+    <string name="tab2">报告</string>
+    <string name="tab3">活动</string>
+    <string name="tab4">设置</string>
+
+
+    <!--下拉刷新-->
+    <string name="item_example_number_title">第%02d条数据</string>
+    <string name="item_example_number_abstract">这是测试的第%02d条数据</string>
+
+    <string name="connecting_text">连接中&#8230;</string>
+    <string name="connected_text">连接成功！</string>
+    <string name="connection_error_text">连接失败！</string>
+
+    <string name="about_item_tips">小贴士</string>
+    <string name="about_item_homepage">访问官网</string>
+    <string name="about_item_wiki">说明文档</string>
+    <string name="about_item_update">版本更新</string>
+    <string name="about_item_sponsor">赞助项目</string>
+    <string name="about_item_github">GitHub主页</string>
+    <string name="about_copyright">© %1$s xuexiangjys All rights reserved.</string>
+    <string name="about_item_add_qq_group">加入QQ官方交流群</string>
+    <string name="url_add_qq_group"><![CDATA[https://qm.qq.com/cgi-bin/qm/qr?k=0lUqsbfHTNDbS2KK4nTPwPq07tOqAk6J&authKey=4PzQ2cQYIr28Qyg%2FkTk%2BmI7xlcq8B0IZKZGc1H3XloRrCDBO8az97DIsBHnQW0Ya]]></string>
+
+    <string name="lab_yes">是</string>
+    <string name="lab_no">否</string>
+    <string name="lab_open_third_app">是否允许页面打开第三方应用?</string>
+
+    <string name="lab_logout_confirm">是否确认退出？</string>
+    <string name="guide_key_sliding_root_navigation">guide_key_sliding_root_navigation</string>
+
+    <string name="label_previous">上一条</string>
+    <string name="label_next">下一条</string>
+    <string name="tip_ignore_message">以后不再提示此类信息</string>
+    <string name="tip_title">你知道吗？</string>
+    <string name="lab_select_all">全选</string>
+    <string name="title_enter_manage_mode">管理</string>
+    <string name="title_exit_manage_mode">退出</string>
 </resources>

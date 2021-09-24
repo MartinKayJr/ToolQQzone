@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 拓展主题 theme. -->
+    <style name="ToolQTheme" parent="XUIBaseTheme">
+        <!--设置默认窗口的动画样式-->
+        <item name="android:windowAnimationStyle">@style/WindowAnimStyle</item>
+
+        <!--自定义标题栏样式方法1-->
+        <!--<item name="xui_actionbar_color">@color/app_color_theme_1</item>-->
+        <!--<item name="xui_actionbar_text_color">@color/xui_config_color_primary_text</item>-->
+        <!--<item name="xui_actionbar_immersive">true</item>-->
+
+        <!--自定义标题栏样式方法2-->
+        <!--<item name="TitleBarStyle">@style/TitleBar.Custom</item>-->
+    </style>
+
+    <style name="WindowAnimStyle" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/xpage_slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/xpage_slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/xpage_slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/xpage_slide_out_right</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="ToolQTheme.Phone">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--窗体背景，这个背景能在第一时间显示, 避免启动时白屏，黑屏问题-->
+    <style name="ToolQTheme.Launch">
+        <item name="android:windowBackground">@drawable/toolq_config_bg_splash</item>
+        <item name="xui_config_splash_app_logo">@drawable/qzone_icon_logo</item>
+        <item name="xui_config_splash_company_logo">@drawable/splash_acgp_logo</item>
+    </style>
+
+    <!--SettingTheme-->
+    <style name="SettingTheme" parent="ToolQTheme.Phone">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <!--系统弹窗按钮样式-->
+        <item name="buttonStyle">@style/Button.AlertDialog</item>
+
+        <!--有Title-->
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="titleTextStyle">@style/ToolbarTitle</item>
+        <item name="subtitleTextStyle">@style/ToolbarSubTitle</item>
+        <item name="background">?attr/colorPrimary</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">?attr/xui_actionbar_title_text_size</item>
+        <item name="android:textColor">@color/xui_config_color_white</item>
+    </style>
+
+    <style name="ToolbarSubTitle" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">?attr/xui_actionbar_sub_text_size</item>
+        <item name="android:textColor">@color/xui_config_color_white</item>
+    </style>
+</resources>

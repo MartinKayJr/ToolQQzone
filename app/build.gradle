@@ -1,18 +1,43 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao'
+    id 'com.xuexiang.xaop'
+    id 'com.xuexiang.xrouter'
 }
 
 android {
-    compileSdk 31
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         applicationId "cn.toolq.qzone"
-        minSdk 21
-        targetSdk 31
+        minSdkVersion 17
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
+    }
+
+    if (isNeedPackage.toBoolean()) {
+        signingConfigs {
+            release {
+                storeFile file(app_release.storeFile)
+                storePassword app_release.storePassword
+                keyAlias app_release.keyAlias
+                keyPassword app_release.keyPassword
+            }
+        }
     }
 
     buildTypes {
@@ -21,6 +46,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -28,11 +63,97 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.androidx.multidex
+
+    // XUI
+    implementation 'com.github.xuexiangjys:XUI:1.1.8'
+    // XUtil
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:1.1.8'
+    // XUpdate
+    implementation 'com.github.xuexiangjys:XUpdate:2.0.9'
+
 
     implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //切片
+    implementation 'com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0'
+
+    //页面路由
+    implementation 'com.github.xuexiangjys.XRouter:xrouter-runtime:1.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.github.xuexiangjys.XRouter:xrouter-compiler:1.0.1'
+    //XPage页面框架
+    implementation 'com.github.xuexiangjys.XPage:xpage-lib:3.1.1'
+    annotationProcessor project(':widget_compiler')
+    //ButterKnife
+    implementation deps.butterknife.runtime
+    annotationProcessor deps.butterknife.compiler
+    //umeng统计
+    implementation 'com.umeng.umsdk:common:9.3.8'
+    implementation 'com.umeng.umsdk:asms:1.2.1'
+    //数据库
+    implementation 'com.github.xuexiangjys.XOrmlite:xormlite-runtime:1.0.2'
+    annotationProcessor 'com.github.xuexiangjys.XOrmlite:xormlite-compiler:1.0.2'
+
+    //悬浮按钮 FloatingActionMenu
+    implementation 'com.github.clans:fab:1.6.4'
+    //弹性布局
+    implementation 'com.google.android:flexbox:0.3.1'
+    //图标库
+    implementation "com.mikepenz:iconics-core:4.0.2"
+    //图标库控件（可选）
+    implementation "com.mikepenz:iconics-views:4.0.2"
+    //TabBar
+    implementation 'com.github.xuexiangjys:JPTabBar:1.0.1'
+
+    //WebView
+    implementation 'com.github.xuexiangjys.AgentWeb:agentweb-core:1.0.0'
+    implementation 'com.github.xuexiangjys.AgentWeb:agentweb-download:1.0.0'//选填
+    implementation 'com.github.xuexiangjys.AgentWeb:agentweb-filechooser:1.0.0'//选填
+
+    //PictureSelector图片选择
+    implementation 'com.github.xuexiangjys.PictureSelector:picture-core:1.0.5'
+
+    //下拉刷新
+    implementation 'com.github.xuexiangjys.SmartRefreshLayout:refresh-header:1.1.5'
+    implementation 'com.github.xuexiangjys.SmartRefreshLayout:refresh-layout:1.1.5'
+
+    //预加载占位控件
+    implementation 'me.samlss:broccoli:1.0.0'
+    //阿里巴巴组件
+    implementation 'com.alibaba.android:vlayout:1.3.0'
+    implementation 'com.alibaba.android:ultraviewpager:1.0.7.8'
+    implementation 'com.alibaba.android:tangram:3.3.6'
+    //双列表联动
+    implementation 'com.kunminx.linkage:linkage-recyclerview:1.9.2'
+    //列表侧滑菜单
+    implementation 'com.yanzhenjie.recyclerview:support:1.3.2'
+    //富文本
+    implementation 'com.zzhoujay.richtext:richtext:3.0.8'
+    //CityPicker
+    implementation "com.github.xuexiangjys:CityPicker:1.0.2"
+    //侧边栏菜单
+    implementation 'com.yarolegovich:sliding-root-nav:1.1.0'
+
+    // FastJson
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+    // OkHttp3
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    //腾讯的键值对存储mmkv
+    implementation 'com.tencent:mmkv:1.2.10'
+    //腾讯x5TBS
+    implementation 'com.tencent.tbs.tbssdk:sdk:43967'
+    implementation deps.gson
 }

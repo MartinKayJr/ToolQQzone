@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable-v17/toolq_config_bg_splash.xml" value="0.196875" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable-v24/toolq_config_bg_splash.xml" value="0.25462962962962965" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/bg_dialog_common_tip_corner_white.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/bg_rect_round_tag_btn.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/custom_icon_checkbox.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/custom_selector_icon_tabbar_component.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_action_close_white.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_action_menu.xml" value="0.36822916666666666" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_arrow_right.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_check_circle_white_24dp.xml" value="0.16302083333333334" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_checked_right.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1984375" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/ic_login_close.xml" value="0.26944444444444443" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/img_guide_tip_top.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/pager_layout_item_bg.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/picture_dot_oval.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/selector_bg_search_record_tag_btn.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/selector_bg_tag_stroke.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/drawable/selector_icon_tabbar_component.xml" value="0.1625" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/activity_agent_web.xml" value="0.146875" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/activity_main.xml" value="0.19384057971014493" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/activity_qzone_login.xml" value="0.2368659420289855" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_common_grid_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_drag_touch_grid_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_drag_touch_list_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_drop_down_constellation.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_drop_down_list_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_expandable_list_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_flexbox_layout_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_common_recycler_view.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_image_preview.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_nine_grid_fill_style.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_nine_grid_grid_style.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_simple_list_2.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_tag.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_news_list_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_news_xuilayout_list_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_recycler_view_banner_image_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_search_record_tag_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_vlayout_title_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/dialog_drawable_utils_createfromview.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/dialog_guide_tips.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_about.xml" value="0.146875" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_agentweb.xml" value="0.10235507246376811" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_home_container.xml" value="0.21829710144927536" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_my_msg.xml" value="0.17617753623188406" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_pulldown_web.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_recyclerview_banner.xml" value="0.146875" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_head_view_banner.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_nav_header.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_toolbar_web.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/layout_widget_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/menu_item_option.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/menu_left_drawer.xml" value="0.22" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/merge_news_card_item.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/sv_layout_complete.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/toolq_qzone_fragment_login.xml" value="0.18795289855072464" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/menu/menu_toolbar_web.xml" value="0.14635416666666667" />
+        <entry key="..\:/Program Files/Gradle/caches/transforms-3/63901cde728202685be1337aa7fb297a/transformed/jetified-XUI-1.1.8/res/drawable/xui_config_bg_splash.xml" value="0.196875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
