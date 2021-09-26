@@ -6,7 +6,7 @@ import com.xuexiang.xui.widget.imageview.RadiusImageView;
 import cn.toolq.qzone.common.DataProvider;
 import cn.toolq.qzone.R;
 import cn.toolq.qzone.adapter.base.broccoli.BroccoliRecyclerAdapter;
-import cn.toolq.qzone.adapter.entity.NewInfo;
+import cn.toolq.qzone.adapter.entity.MsgInfo;
 import cn.toolq.qzone.xui.utils.PlaceholderHelper;
 
 import me.samlss.broccoli.Broccoli;
@@ -15,7 +15,7 @@ import me.samlss.broccoli.Broccoli;
  * @author xuexiang
  * @since 2019/4/7 下午12:06
  */
-public class NewsListAdapter extends BroccoliRecyclerAdapter<NewInfo> {
+public class NewsListAdapter extends BroccoliRecyclerAdapter<MsgInfo> {
     /**
      * 是否是加载占位
      */
@@ -40,8 +40,8 @@ public class NewsListAdapter extends BroccoliRecyclerAdapter<NewInfo> {
      * @param position
      */
     @Override
-    protected void onBindData(RecyclerViewHolder holder, NewInfo model, int position) {
-        holder.text(R.id.tv_user_name, model.getUserName());
+    protected void onBindData(RecyclerViewHolder holder, MsgInfo model, int position) {
+        holder.text(R.id.tv_user_name, model.getCreateTime());
         holder.text(R.id.tv_tag, model.getTag());
         holder.text(R.id.tv_title, model.getTitle());
         holder.text(R.id.tv_summary, model.getSummary());
@@ -62,7 +62,7 @@ public class NewsListAdapter extends BroccoliRecyclerAdapter<NewInfo> {
     @Override
     protected void onBindBroccoli(RecyclerViewHolder holder, Broccoli broccoli) {
         if (mIsAnim) {
-            broccoli.addPlaceholder(PlaceholderHelper.getParameter(holder.findView(R.id.iv_avatar)))
+            broccoli
                     .addPlaceholder(PlaceholderHelper.getParameter(holder.findView(R.id.tv_user_name)))
                     .addPlaceholder(PlaceholderHelper.getParameter(holder.findView(R.id.tv_tag)))
                     .addPlaceholder(PlaceholderHelper.getParameter(holder.findView(R.id.tv_title)))
@@ -75,7 +75,6 @@ public class NewsListAdapter extends BroccoliRecyclerAdapter<NewInfo> {
                     .addPlaceholder(PlaceholderHelper.getParameter(holder.findView(R.id.tv_read)));
         } else {
             broccoli.addPlaceholders(
-                    holder.findView(R.id.iv_avatar),
                     holder.findView(R.id.tv_user_name),
                     holder.findView(R.id.tv_tag),
                     holder.findView(R.id.tv_title),

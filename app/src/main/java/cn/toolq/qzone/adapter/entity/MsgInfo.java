@@ -5,21 +5,20 @@ import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * 新闻信息
- *
- * @author xuexiang
- * @since 2019/4/7 下午12:07
+ * 说说信息
  */
-public class NewInfo implements Cloneable {
+public class MsgInfo implements Cloneable {
 
     private static AtomicLong sAtomicLong = new AtomicLong();
 
 
     private long ID;
+
+    private String tid;
     /**
      * 用户名
      */
-    private String UserName = "xuexiangjys";
+    private String CreateTime;
     /**
      * 标签
      */
@@ -55,12 +54,14 @@ public class NewInfo implements Cloneable {
     private String DetailUrl;
 
 
-    public NewInfo() {
+    public MsgInfo() {
 
     }
 
-    public NewInfo(String userName, String tag, String title, String summary, String imageUrl, int praise, int comment, int read, String detailUrl) {
-        UserName = userName;
+
+
+    public MsgInfo(String createTime, String tag, String title, String summary, String imageUrl, int praise, int comment, int read, String detailUrl) {
+        CreateTime = createTime;
         Tag = tag;
         Title = title;
         Summary = summary;
@@ -72,7 +73,7 @@ public class NewInfo implements Cloneable {
     }
 
 
-    public NewInfo(String tag, String title, String summary, String imageUrl, String detailUrl) {
+    public MsgInfo(String tag, String title, String summary, String imageUrl, String detailUrl) {
         Tag = tag;
         Title = title;
         Summary = summary;
@@ -81,7 +82,7 @@ public class NewInfo implements Cloneable {
     }
 
 
-    public NewInfo(String tag, String title) {
+    public MsgInfo(String tag, String title) {
         ID = sAtomicLong.incrementAndGet();
         Tag = tag;
         Title = title;
@@ -91,14 +92,14 @@ public class NewInfo implements Cloneable {
         Read = (int) (Math.random() * 500 + 50);
     }
 
-    public NewInfo resetContent() {
+    public MsgInfo resetContent() {
         Praise = (int) (Math.random() * 100 + 5);
         Comment = (int) (Math.random() * 50 + 5);
         Read = (int) (Math.random() * 500 + 50);
         return this;
     }
 
-    public NewInfo setID(long ID) {
+    public MsgInfo setID(long ID) {
         this.ID = ID;
         return this;
     }
@@ -107,12 +108,12 @@ public class NewInfo implements Cloneable {
         return ID;
     }
 
-    public String getUserName() {
-        return UserName;
+    public String getCreateTime() {
+        return CreateTime;
     }
 
-    public NewInfo setUserName(String userName) {
-        UserName = userName;
+    public MsgInfo setCreateTime(String createTime) {
+        CreateTime = createTime;
         return this;
     }
 
@@ -120,7 +121,7 @@ public class NewInfo implements Cloneable {
         return Tag;
     }
 
-    public NewInfo setTag(String tag) {
+    public MsgInfo setTag(String tag) {
         Tag = tag;
         return this;
     }
@@ -129,7 +130,7 @@ public class NewInfo implements Cloneable {
         return Title;
     }
 
-    public NewInfo setTitle(String title) {
+    public MsgInfo setTitle(String title) {
         Title = title;
         return this;
     }
@@ -138,7 +139,7 @@ public class NewInfo implements Cloneable {
         return Summary;
     }
 
-    public NewInfo setSummary(String summary) {
+    public MsgInfo setSummary(String summary) {
         Summary = summary;
         return this;
     }
@@ -147,7 +148,7 @@ public class NewInfo implements Cloneable {
         return ImageUrl;
     }
 
-    public NewInfo setImageUrl(String imageUrl) {
+    public MsgInfo setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
         return this;
     }
@@ -156,7 +157,7 @@ public class NewInfo implements Cloneable {
         return Praise;
     }
 
-    public NewInfo setPraise(int praise) {
+    public MsgInfo setPraise(int praise) {
         Praise = praise;
         return this;
     }
@@ -165,7 +166,7 @@ public class NewInfo implements Cloneable {
         return Comment;
     }
 
-    public NewInfo setComment(int comment) {
+    public MsgInfo setComment(int comment) {
         Comment = comment;
         return this;
     }
@@ -174,7 +175,7 @@ public class NewInfo implements Cloneable {
         return Read;
     }
 
-    public NewInfo setRead(int read) {
+    public MsgInfo setRead(int read) {
         Read = read;
         return this;
     }
@@ -183,16 +184,24 @@ public class NewInfo implements Cloneable {
         return DetailUrl;
     }
 
-    public NewInfo setDetailUrl(String detailUrl) {
+    public MsgInfo setDetailUrl(String detailUrl) {
         DetailUrl = detailUrl;
         return this;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 
     @NonNull
     @Override
     public String toString() {
         return "NewInfo{" +
-                "UserName='" + UserName + '\'' +
+                "UserName='" + CreateTime + '\'' +
                 ", Tag='" + Tag + '\'' +
                 ", Title='" + Title + '\'' +
                 ", Summary='" + Summary + '\'' +
@@ -206,12 +215,12 @@ public class NewInfo implements Cloneable {
 
     @NonNull
     @Override
-    public NewInfo clone() {
+    public MsgInfo clone() {
         try {
-            return (NewInfo) super.clone();
+            return (MsgInfo) super.clone();
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        return new NewInfo();
+        return new MsgInfo();
     }
 }

@@ -1,9 +1,15 @@
 package cn.toolq.qzone.common;
 
+import static cn.toolq.qzone.model.UserModel.uin;
+
+import cn.toolq.qzone.model.UserModel;
+
 /**
  * API常量
  */
 public class ApiConst {
+
+    public static final int MSG_NUM = 10;
 
     /**
      * 平台登录域名
@@ -28,12 +34,17 @@ public class ApiConst {
     /**
      * C/C++说说列表接口 V6版本
      */
-    public static final String CGI_BIN_MSG_LIST_V6 = "https://user.qzone.qq.com/proxy/domain/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6?";
+    public static final String CGI_BIN_MSG_LIST_V6 = "https://h5.qzone.qq.com/proxy/domain/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6?";
 
     /**
      * 用户头像接口
      */
     public static final String USER_AVATAR = "https://qlogo4.store.qq.com/qzone/";
+
+    /**
+     * user.qzone.qq.com
+     */
+    public static final String USER_DOMAIN = "https://user.qzone.qq.com/";
 
     /**
      * 二维码登录接口
@@ -48,14 +59,12 @@ public class ApiConst {
     /**
      * C/C++说说列表接口 V6版本
      *
-     * @param sKey     sKey
-     * @param uin      QQ号
      * @param position 位置
      * @param number   说说数量 (注意：接口限制最多40条)
      * @return 接口链接
      */
-    public static String cgiBinMsgListV6(String sKey, long uin, int position, int number) {
-        long g_tk = QQUtils.getGTK(sKey);
+    public static String cgiBinMsgListV6(int position, int number) {
+        long g_tk = QQUtils.getGTK(UserModel.sKey);
         // "https://user.qzone.qq.com/proxy/domain/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6?uin=" + uin + "&inCharset=utf-8&outCharset=utf-8&hostUin=" + uin + "&notice=0&sort=0&pos=" + position + "&num=" + number + "&cgi_host=https%3A%2F%2Fuser.qzone.qq.com%2Fproxy%2Fdomain%2Ftaotao.qq.com%2Fcgi-bin%2Femotion_cgi_msglist_v6&code_version=1&format=jsonp&need_private_comment=1&g_tk=" + g_tk + "&g_tk=" + g_tk;
         return CGI_BIN_MSG_LIST_V6 +
                 // QQ号
@@ -81,16 +90,24 @@ public class ApiConst {
                 // 需要私有评论
                 "need_private_comment=" + 1 + "&" +
                 // g_tk
-                "g_tk=" + g_tk + "&" +
-                "g_tk" + g_tk;
+                "g_tk=" + g_tk;
     }
 
     /**
      * 用户头像接口
-     * @param uin QQ号
+     *
      * @return 链接地址
      */
-    public static String userAvatar(long uin) {
+    public static String userAvatar() {
         return USER_AVATAR + uin + "/" + uin + "/100";
+    }
+
+    /**
+     * 说说访问地址
+     * @param tid 说说ID
+     * @return 说说地址
+     */
+    public static String moodLink(String tid) {
+        return USER_DOMAIN + uin + "/mood/" + tid;
     }
 }

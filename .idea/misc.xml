@@ -38,6 +38,7 @@
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_nine_grid_grid_style.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_simple_list_2.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_item_tag.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_msg_list_item.xml" value="0.33" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_news_list_item.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_news_xuilayout_list_item.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/adapter_recycler_view_banner_image_item.xml" value="0.14635416666666667" />
@@ -48,15 +49,19 @@
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_about.xml" value="0.146875" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_agentweb.xml" value="0.10235507246376811" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_home_container.xml" value="0.21829710144927536" />
-        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_my_msg.xml" value="0.17617753623188406" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_msg_list_edit.xml" value="0.19429347826086957" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_my_msg.xml" value="0.33" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_pulldown_web.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/fragment_recyclerview_banner.xml" value="0.146875" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_head_view_banner.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_nav_header.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/include_toolbar_web.xml" value="0.14635416666666667" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/layout_msg_card_item.xml" value="0.1702127659574468" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/layout_news_card_item.xml" value="0.21105072463768115" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/layout_widget_item.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/menu_item_option.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/menu_left_drawer.xml" value="0.22" />
+        <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/merge_msg_card_item.xml" value="0.33" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/merge_news_card_item.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/sv_layout_complete.xml" value="0.14635416666666667" />
         <entry key="..\:/Android/ToolQQzone/app/src/main/res/layout/toolq_qzone_fragment_login.xml" value="0.18795289855072464" />

@@ -15,6 +15,6 @@
     android:paddingBottom="8dp"
     app:xui_shadowElevation="0dp">
 
-    <include layout="@layout/layout_news_card_item" />
+    <include layout="@layout/layout_msg_card_item" />
 
 </com.xuexiang.xui.widget.layout.XUIFrameLayout>

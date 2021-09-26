@@ -148,9 +148,10 @@ dependencies {
 
     // FastJson
     implementation 'com.alibaba:fastjson:1.1.70.android'
-    // OkHttp3
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     implementation 'com.zhy:okhttputils:2.6.2'
+    // OkHttp3
+    implementation deps.okhttp3
     //腾讯的键值对存储mmkv
     implementation 'com.tencent:mmkv:1.2.10'
     //腾讯x5TBS

@@ -32,7 +32,7 @@ public class PlaceholderHelper {
     private static PlaceholderParameter getParameter(int viewId, View view) {
         int placeHolderColor = Color.parseColor("#DDDDDD");
         switch (viewId) {
-            case R.id.iv_avatar:
+            case R.id.riv_avatar:
                 return getOvalPlaceholder(view, placeHolderColor);
 
             case R.id.tv_user_name:

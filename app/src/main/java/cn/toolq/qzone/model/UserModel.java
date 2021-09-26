@@ -16,4 +16,12 @@ public class UserModel {
      * 用户名
      */
     public static String userName;
+    /**
+     * sKey
+     */
+    public static String sKey;
+    /**
+     * g_tk
+     */
+    public static long gTk;
 }

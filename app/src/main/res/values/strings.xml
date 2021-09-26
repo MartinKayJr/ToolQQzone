@@ -8,6 +8,8 @@
     <string name="tab4">设置</string>
 
 
+    <string name="lab_submit">确定</string>
+    <string name="app_browser_name">Web浏览器</string>
     <!--下拉刷新-->
     <string name="item_example_number_title">第%02d条数据</string>
     <string name="item_example_number_abstract">这是测试的第%02d条数据</string>

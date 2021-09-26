@@ -17,6 +17,6 @@
     app:contentPaddingRight="@dimen/activity_horizontal_margin"
     app:contentPaddingTop="5dp">
 
-    <include layout="@layout/layout_news_card_item" />
+    <include layout="@layout/layout_msg_card_item" />
 
 </androidx.cardview.widget.CardView>

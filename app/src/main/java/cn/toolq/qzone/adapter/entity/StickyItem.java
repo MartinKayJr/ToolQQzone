@@ -35,7 +35,7 @@ public class StickyItem {
     /**
      * 新闻信息
      */
-    private NewInfo mNewInfo;
+    private MsgInfo mMsgInfo;
 
 
     public StickyItem(String headTitle) {
@@ -43,8 +43,8 @@ public class StickyItem {
         mIsHeadSticky = true;
     }
 
-    public StickyItem(NewInfo newInfo) {
-        mNewInfo = newInfo;
+    public StickyItem(MsgInfo msgInfo) {
+        mMsgInfo = msgInfo;
         mIsHeadSticky = false;
     }
 
@@ -61,12 +61,12 @@ public class StickyItem {
         return this;
     }
 
-    public NewInfo getNewInfo() {
-        return mNewInfo;
+    public MsgInfo getNewInfo() {
+        return mMsgInfo;
     }
 
-    public StickyItem setNewInfo(NewInfo newInfo) {
-        mNewInfo = newInfo;
+    public StickyItem setNewInfo(MsgInfo msgInfo) {
+        mMsgInfo = msgInfo;
         return this;
     }
 }

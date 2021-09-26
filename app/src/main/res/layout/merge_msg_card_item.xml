@@ -30,13 +30,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.xuexiang.xui.widget.imageview.RadiusImageView
-                android:id="@+id/iv_avatar"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@mipmap/ic_launcher"
-                app:riv_is_circle="true" />
-
             <TextView
                 android:id="@+id/tv_user_name"
                 style="@style/TextStyle.Explain"
@@ -67,22 +60,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_title"
-                style="@style/TextStyle.Content"
-                android:ellipsize="end"
-                android:gravity="start|center_vertical"
-                android:maxLines="2"
-                android:singleLine="false"
-                android:text="深度解析RocketMQ消息发送的高可用设计"
-                android:textColor="@color/xui_config_color_pure_black" />
-
-            <TextView
                 android:id="@+id/tv_summary"
                 style="@style/TextStyle.Explain"
                 android:layout_marginTop="3dp"
                 android:ellipsize="end"
                 android:gravity="start|center_vertical"
-                android:maxLines="2"
+                android:maxLines="4"
                 android:singleLine="false"
                 android:text="从rocketmq topic的创建机制可知，一个topic对应有多个消息队列，那么我们在发送消息时，是如何选择消息队列进行发送的？"
                 android:textColor="?attr/xui_config_color_content_text" />

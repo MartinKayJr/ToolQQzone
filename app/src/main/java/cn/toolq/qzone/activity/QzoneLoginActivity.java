@@ -198,7 +198,9 @@ public class QzoneLoginActivity extends BaseActivity {
                 public void onFailure(Call call, IOException e) {
                 }
 
-                //                0 = {Cookie@4582} "pt2gguin=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=qq.com; path=/"
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    //                0 = {Cookie@4582} "pt2gguin=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=qq.com; path=/"
 //                        1 = {Cookie@4583} "pt2gguin=o2250635418; expires=Tue, 19 Jan 2038 03:14:07 GMT; domain=ptlogin2.qq.com; path=/; secure"
 //                        2 = {Cookie@4584} "ETK=; domain=ptlogin2.qq.com; path=/; secure"
 //                        3 = {Cookie@4585} "uin=o2250635418; domain=qq.com; path=/"
@@ -213,8 +215,6 @@ public class QzoneLoginActivity extends BaseActivity {
 //                        12 = {Cookie@4594} "ptcz=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=ptlogin2.qq.com; path=/; secure"
 //                        13 = {Cookie@4595} "airkey=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=qq.com; path=/"
 //
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
                     String data = response.body().string();
                     String skey = CookieUtils.getCookieValue(GlobalObject.cookieStore, ApiConst.PT_LOGIN_DOMAIN, CookieKeyConst.S_KEY);
                     Log.e("TAG", "二维码状态：" + data + "cookie:" + skey);
@@ -241,6 +241,8 @@ public class QzoneLoginActivity extends BaseActivity {
                                             UserModel.uin = Long.parseLong(uinPrefixO.replace("o", ""));
                                         }
                                         UserModel.userName = map.get("param5");
+                                        UserModel.sKey = skey;
+                                        UserModel.gTk = QQUtils.getGTK(skey);
                                         // 登录后的代码
                                         loginSuccess();
                                     }

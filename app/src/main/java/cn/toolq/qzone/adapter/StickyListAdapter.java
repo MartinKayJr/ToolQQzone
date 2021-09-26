@@ -24,7 +24,7 @@ import com.xuexiang.xui.adapter.recyclerview.BaseRecyclerAdapter;
 import com.xuexiang.xui.adapter.recyclerview.RecyclerViewHolder;
 import com.xuexiang.xui.adapter.recyclerview.sticky.FullSpanUtils;
 import cn.toolq.qzone.R;
-import cn.toolq.qzone.adapter.entity.NewInfo;
+import cn.toolq.qzone.adapter.entity.MsgInfo;
 import cn.toolq.qzone.adapter.entity.StickyItem;
 
 /**
@@ -79,8 +79,8 @@ public class StickyListAdapter extends BaseRecyclerAdapter<StickyItem> {
         if (item.isHeadSticky()) {
             holder.text(R.id.tv_title, item.getHeadTitle());
         } else {
-            NewInfo info = item.getNewInfo();
-            holder.text(R.id.tv_user_name, info.getUserName());
+            MsgInfo info = item.getNewInfo();
+            holder.text(R.id.tv_user_name, info.getCreateTime());
             holder.text(R.id.tv_tag, info.getTag());
             holder.text(R.id.tv_title, info.getTitle());
             holder.text(R.id.tv_summary, info.getSummary());

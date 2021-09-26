@@ -23,7 +23,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <include layout="@layout/merge_news_card_item" />
+    <include layout="@layout/merge_msg_card_item" />
 
 </LinearLayout>
 
