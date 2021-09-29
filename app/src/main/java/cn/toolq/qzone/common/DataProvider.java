@@ -36,7 +36,7 @@ public class DataProvider {
      * @return
      */
     @MemoryCache
-    public static List<MsgInfo> getEmptyNewInfo() {
+    public static List<MsgInfo> getEmptyMsgInfo() {
         List<MsgInfo> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             list.add(new MsgInfo());
@@ -50,7 +50,7 @@ public class DataProvider {
      * @return
      */
     @MemoryCache
-    public static List<MsgInfo> getDemoNewInfos() {
+    public static List<MsgInfo> getDemoMsgInfos() {
         List<MsgInfo> list = new ArrayList<>();
         list.add(new MsgInfo("公众号", "X-Library系列文章视频介绍")
                 .setSummary("获取更多咨询，欢迎点击关注公众号:【我的Android开源之旅】，里面有一整套X-Library系列文章视频介绍！\n")

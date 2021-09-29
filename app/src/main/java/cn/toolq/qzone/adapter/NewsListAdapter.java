@@ -22,7 +22,7 @@ public class NewsListAdapter extends BroccoliRecyclerAdapter<MsgInfo> {
     private boolean mIsAnim;
 
     public NewsListAdapter(boolean isAnim) {
-        super(DataProvider.getEmptyNewInfo());
+        super(DataProvider.getEmptyMsgInfo());
         mIsAnim = isAnim;
     }
 

@@ -252,7 +252,7 @@ public class MainActivity extends BaseActivity implements DrawerAdapter.OnItemSe
         RadiusImageView avatarImageView = mSlidingRootNav.getLayout().findViewById(R.id.riv_avatar);
         TextView userNameTextView = mSlidingRootNav.getLayout().findViewById(R.id.tv_user_name);
         OkHttpUtils.get()
-                .url(ApiConst.userAvatar())
+                .url(ApiConst.getUserAvatarApi())
                 .build()
                 .execute(new BitmapCallback() {
                     @Override

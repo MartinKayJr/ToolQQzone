@@ -61,11 +61,11 @@ public class StickyItem {
         return this;
     }
 
-    public MsgInfo getNewInfo() {
+    public MsgInfo getMsgInfo() {
         return mMsgInfo;
     }
 
-    public StickyItem setNewInfo(MsgInfo msgInfo) {
+    public StickyItem setMsgInfo(MsgInfo msgInfo) {
         mMsgInfo = msgInfo;
         return this;
     }

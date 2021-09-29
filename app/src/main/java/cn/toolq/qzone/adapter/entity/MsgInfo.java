@@ -200,7 +200,7 @@ public class MsgInfo implements Cloneable {
     @NonNull
     @Override
     public String toString() {
-        return "NewInfo{" +
+        return "MsgInfo{" +
                 "UserName='" + CreateTime + '\'' +
                 ", Tag='" + Tag + '\'' +
                 ", Title='" + Title + '\'' +

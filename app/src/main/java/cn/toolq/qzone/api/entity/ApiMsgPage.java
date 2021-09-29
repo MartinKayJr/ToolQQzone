@@ -2,6 +2,9 @@ package cn.toolq.qzone.api.entity;
 
 import java.util.List;
 
+/**
+ * 说说分页
+ */
 public class ApiMsgPage {
     /**
      * 说说列表

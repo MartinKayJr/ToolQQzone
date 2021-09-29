@@ -2,6 +2,11 @@ package cn.toolq.qzone.api.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.util.List;
+
+/**
+ * 说说信息
+ */
 public class ApiMsgInfo {
     /**
      * 说说id
@@ -19,7 +24,7 @@ public class ApiMsgInfo {
     /**
      * 发布平台
      */
-    private String source_name;
+    private String source_name = "未知设备";
     /**
      * 说说内容
      */
@@ -36,6 +41,10 @@ public class ApiMsgInfo {
      * 转发数量
      */
     private int fwdnum;
+    /**
+     * 说说的图片列表
+     */
+    private List<ApiMsgPicInfo> pic;
 
     public String getTid() {
         return tid;
@@ -99,5 +108,13 @@ public class ApiMsgInfo {
 
     public void setFwdnum(int fwdnum) {
         this.fwdnum = fwdnum;
+    }
+
+    public List<ApiMsgPicInfo> getPic() {
+        return pic;
+    }
+
+    public void setPic(List<ApiMsgPicInfo> pic) {
+        this.pic = pic;
     }
 }

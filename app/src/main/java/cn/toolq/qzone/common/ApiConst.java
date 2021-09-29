@@ -2,6 +2,9 @@ package cn.toolq.qzone.common;
 
 import static cn.toolq.qzone.model.UserModel.uin;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import cn.toolq.qzone.model.UserModel;
 
 /**
@@ -32,9 +35,14 @@ public class ApiConst {
     public static final String PT_QR_LOGIN = "https://ssl.ptlogin2.qq.com/ptqrlogin?";
 
     /**
-     * C/C++说说列表接口 V6版本
+     * C/C++说说列表接口 V6版本 GET
      */
     public static final String CGI_BIN_MSG_LIST_V6 = "https://h5.qzone.qq.com/proxy/domain/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6?";
+
+    /**
+     * C/C++说说删除接口 V6版本 POST
+     */
+    public static final String CGI_BIN_MSG_DELETE_V6 = "https://h5.qzone.qq.com/proxy/domain/taotao.qzone.qq.com/cgi-bin/emotion_cgi_delete_v6?";
 
     /**
      * 用户头像接口
@@ -44,7 +52,28 @@ public class ApiConst {
     /**
      * user.qzone.qq.com
      */
+    public static final String H5_DOMAIN = "https://h5.qzone.qq.com/";
+
+    /**
+     * user.qzone.qq.com
+     */
     public static final String USER_DOMAIN = "https://user.qzone.qq.com/";
+
+
+    /**
+     * 返回的 _Callback(JSON数据); 数据格式转换成 JSON串
+     *
+     * @param callbackStr _Callback(JSON数据); 字符串
+     * @return JSON字符串
+     */
+    public static String callbackToJson(String callbackStr) {
+        Matcher matcher = Pattern.compile("\\w+\\((\\{[^()]+\\})\\)").matcher(callbackStr);
+        if (matcher.find()){
+            // 0是匹配整体，1是JSONP内的。
+            return matcher.group(1);
+        }
+        return null;
+    }
 
     /**
      * 二维码登录接口
@@ -63,7 +92,7 @@ public class ApiConst {
      * @param number   说说数量 (注意：接口限制最多40条)
      * @return 接口链接
      */
-    public static String cgiBinMsgListV6(int position, int number) {
+    public static String getCgiBinMsgListV6Api(int position, int number) {
         long g_tk = QQUtils.getGTK(UserModel.sKey);
         // "https://user.qzone.qq.com/proxy/domain/taotao.qq.com/cgi-bin/emotion_cgi_msglist_v6?uin=" + uin + "&inCharset=utf-8&outCharset=utf-8&hostUin=" + uin + "&notice=0&sort=0&pos=" + position + "&num=" + number + "&cgi_host=https%3A%2F%2Fuser.qzone.qq.com%2Fproxy%2Fdomain%2Ftaotao.qq.com%2Fcgi-bin%2Femotion_cgi_msglist_v6&code_version=1&format=jsonp&need_private_comment=1&g_tk=" + g_tk + "&g_tk=" + g_tk;
         return CGI_BIN_MSG_LIST_V6 +
@@ -94,20 +123,35 @@ public class ApiConst {
     }
 
     /**
+     * C/C++说说删除接口 V6版本
+     *
+     * @return 接口链接
+     */
+    public static String getCgiBinMsgDeleteV6Api() {
+        long g_tk = QQUtils.getGTK(UserModel.sKey);
+        return CGI_BIN_MSG_DELETE_V6 + "g_tk=" + g_tk;
+    }
+
+    /**
      * 用户头像接口
      *
      * @return 链接地址
      */
-    public static String userAvatar() {
+    public static String getUserAvatarApi() {
         return USER_AVATAR + uin + "/" + uin + "/100";
     }
 
     /**
      * 说说访问地址
+     *
      * @param tid 说说ID
      * @return 说说地址
      */
-    public static String moodLink(String tid) {
+    public static String getMoodLinkApi(String tid) {
         return USER_DOMAIN + uin + "/mood/" + tid;
+    }
+
+    public static String getQzReferrer() {
+        return USER_DOMAIN + uin + "/" + "main";
     }
 }

@@ -79,7 +79,7 @@ public class StickyListAdapter extends BaseRecyclerAdapter<StickyItem> {
         if (item.isHeadSticky()) {
             holder.text(R.id.tv_title, item.getHeadTitle());
         } else {
-            MsgInfo info = item.getNewInfo();
+            MsgInfo info = item.getMsgInfo();
             holder.text(R.id.tv_user_name, info.getCreateTime());
             holder.text(R.id.tv_tag, info.getTag());
             holder.text(R.id.tv_title, info.getTitle());

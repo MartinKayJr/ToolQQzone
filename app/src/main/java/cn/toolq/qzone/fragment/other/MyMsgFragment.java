@@ -17,10 +17,6 @@ import com.xuexiang.xui.utils.ViewUtils;
 import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.actionbar.TitleBar;
 import com.xuexiang.xui.widget.button.SmoothCheckBox;
-import com.xuexiang.xutil.net.JSONUtils;
-import com.xuexiang.xutil.net.JsonUtil;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -37,6 +33,7 @@ import cn.toolq.qzone.api.entity.ApiMsgPage;
 import cn.toolq.qzone.base.BaseFragment;
 import cn.toolq.qzone.common.ApiConst;
 import cn.toolq.qzone.common.GlobalObject;
+import cn.toolq.qzone.common.MsgApiUtils;
 import cn.toolq.qzone.fragment.components.MsgListOptionAdapter;
 import cn.toolq.qzone.xui.utils.Utils;
 import cn.toolq.qzone.xui.utils.XToastUtils;
@@ -171,12 +168,7 @@ public class MyMsgFragment extends BaseFragment {
     }
 
     public ApiMsgPage getMoodPage(int position, int num) {
-        Request getMoodPageRequest = new Request.Builder()
-                .url(ApiConst.cgiBinMsgListV6(position, num))
-                .get()//默认就是GET请求，可以不写
-                .build();
-        Call getMoodPageCall = okHttpClient.newCall(getMoodPageRequest);
-        getMoodPageCall.enqueue(new Callback() {
+        MsgApiUtils.cgiBinMsgListV6(position, num, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -185,33 +177,39 @@ public class MyMsgFragment extends BaseFragment {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String data = response.body().string();
-                data = data.replace("_Callback(", "").replace(");", "");
-                ApiMsgPage apiMsgPage = JSONObject.parseObject(data, ApiMsgPage.class);
-                if (apiMsgPage != null) {
-                    List<ApiMsgInfo> msgList = apiMsgPage.getMsglist();
-                    if (msgList != null && msgList.size() > 0) {
-                        ArrayList<MsgInfo> msgInfoList = new ArrayList<>();
-                        for (ApiMsgInfo apiMsgInfo : msgList) {
-                            MsgInfo msgInfo = new MsgInfo();
-                            msgInfo.setTid(apiMsgInfo.getTid());
-                            msgInfo.setCreateTime(apiMsgInfo.getCreateTime());
-                            msgInfo.setTag(apiMsgInfo.getSource_name());
-                            msgInfo.setSummary(apiMsgInfo.getContent());
-                            msgInfo.setImageUrl(apiMsgInfo.getContent());
-                            msgInfo.setPraise(0);
-                            msgInfo.setComment(apiMsgInfo.getCmtnum());
-                            msgInfo.setRead(0);
-                            msgInfo.setDetailUrl(ApiConst.moodLink(apiMsgInfo.getTid()));
-                            msgInfoList.add(msgInfo);
+                data = ApiConst.callbackToJson(data);
+                if (data != null) {
+                    ApiMsgPage apiMsgPage = JSONObject.parseObject(data, ApiMsgPage.class);
+                    if (apiMsgPage != null) {
+                        List<ApiMsgInfo> msgList = apiMsgPage.getMsglist();
+                        if (msgList != null && msgList.size() > 0) {
+                            ArrayList<MsgInfo> msgInfoList = new ArrayList<>();
+                            for (ApiMsgInfo apiMsgInfo : msgList) {
+                                if (apiMsgInfo != null) {
+                                    MsgInfo msgInfo = new MsgInfo();
+                                    msgInfo.setTid(apiMsgInfo.getTid());
+                                    msgInfo.setCreateTime(apiMsgInfo.getCreateTime());
+                                    msgInfo.setTag(apiMsgInfo.getSource_name());
+                                    msgInfo.setSummary(apiMsgInfo.getContent());
+                                    msgInfo.setPraise(0);
+                                    msgInfo.setComment(apiMsgInfo.getCmtnum());
+                                    msgInfo.setRead(0);
+                                    msgInfo.setDetailUrl(ApiConst.getMoodLinkApi(apiMsgInfo.getTid()));
+                                    msgInfoList.add(msgInfo);
+                                    if (apiMsgInfo.getPic() != null && apiMsgInfo.getPic().size() > 0) {
+                                        msgInfo.setImageUrl(apiMsgInfo.getPic().get(0).getSmallurl());
+                                    }
+                                }
+                            }
+                            Message msg = new Message();
+                            msg.what = 0;
+                            msg.obj = msgInfoList;
+                            myMsgHandler.sendMessage(msg);
+                        } else {
+                            Message msg = new Message();
+                            msg.what = 1;
+                            myMsgHandler.sendMessage(msg);
                         }
-                        Message msg = new Message();
-                        msg.what = 0;
-                        msg.obj = msgInfoList;
-                        myMsgHandler.sendMessage(msg);
-                    } else {
-                        Message msg = new Message();
-                        msg.what = 1;
-                        myMsgHandler.sendMessage(msg);
                     }
                 }
             }
@@ -220,10 +218,18 @@ public class MyMsgFragment extends BaseFragment {
     }
 
     @SingleClick
-    @OnClick(R.id.btn_submit)
+    @OnClick({R.id.btn_submit, R.id.btn_delete})
     public void onViewClicked(View view) {
-        XToastUtils.toast("选中了" + mAdapter.getSelectedIndexList().size() + "个选项！");
+        // XToastUtils.toast("选中了" + mAdapter.getSelectedIndexList().size() + "个选项！");
+        int viewId = view.getId();
+        switch (viewId) {
+            case R.id.btn_submit:
+                break;
+            case R.id.btn_delete:
+                List<MsgInfo> selectedMsgInfoList = mAdapter.getSelectedMsgInfoList();
 
+                break;
+        }
     }
 
     public MainActivity getContainer() {

@@ -29,11 +29,14 @@ import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.button.SmoothCheckBox;
 import com.xuexiang.xui.widget.imageview.ImageLoader;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
+
 import cn.toolq.qzone.common.DataProvider;
 import cn.toolq.qzone.R;
 import cn.toolq.qzone.adapter.base.broccoli.BroccoliRecyclerAdapter;
 import cn.toolq.qzone.adapter.entity.MsgInfo;
+
 import com.xuexiang.xutil.common.CollectionUtils;
+import com.xuexiang.xutil.common.StringUtils;
 import com.xuexiang.xutil.common.logger.Logger;
 
 import java.util.ArrayList;
@@ -65,7 +68,7 @@ public class MsgListOptionAdapter extends BroccoliRecyclerAdapter<MsgInfo> {
     private OnAllSelectStatusChangedListener mListener;
 
     public MsgListOptionAdapter(OnAllSelectStatusChangedListener listener) {
-        super(DataProvider.getEmptyNewInfo());
+        super(DataProvider.getEmptyMsgInfo());
         mListener = listener;
     }
 
@@ -80,11 +83,13 @@ public class MsgListOptionAdapter extends BroccoliRecyclerAdapter<MsgInfo> {
         holder.text(R.id.tv_tag, model.getTag());
         holder.text(R.id.tv_title, model.getTitle());
         holder.text(R.id.tv_summary, model.getSummary());
-        holder.text(R.id.tv_praise, model.getPraise() == 0 ? "点赞" : String.valueOf(model.getPraise()));
-        holder.text(R.id.tv_comment, model.getComment() == 0 ? "评论" : String.valueOf(model.getComment()));
-        holder.text(R.id.tv_read, "阅读量 " + model.getRead());
-        RadiusImageView imageView = holder.findViewById(R.id.iv_image);
-        ImageLoader.get().loadImage(imageView, model.getImageUrl());
+        holder.text(R.id.tv_praise, model.getPraise() == 0 ? "(暂不爬取)" : String.valueOf(model.getPraise()));
+        holder.text(R.id.tv_comment, model.getComment() == 0 ? "(暂无评论)" : String.valueOf(model.getComment()));
+        holder.text(R.id.tv_read, "阅读量 " + (model.getRead() == 0 ? "(暂不爬取)" : String.valueOf(model.getRead())));
+        if (!StringUtils.isEmpty(model.getImageUrl())) {
+            RadiusImageView imageView = holder.findViewById(R.id.iv_image);
+            ImageLoader.get().loadImage(imageView, model.getImageUrl());
+        }
 
         holder.visible(R.id.scb_select, mIsManageMode ? View.VISIBLE : View.GONE);
         if (mIsManageMode) {
@@ -242,7 +247,7 @@ public class MsgListOptionAdapter extends BroccoliRecyclerAdapter<MsgInfo> {
         return list;
     }
 
-    public List<MsgInfo> getSelectedNewInfoList() {
+    public List<MsgInfo> getSelectedMsgInfoList() {
         List<MsgInfo> list = new ArrayList<>();
         for (int i = 0; i < getItemCount(); i++) {
             if (mSparseArray.get(i)) {
