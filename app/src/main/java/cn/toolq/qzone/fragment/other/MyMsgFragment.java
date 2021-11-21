@@ -32,18 +32,12 @@ import cn.toolq.qzone.api.entity.ApiMsgInfo;
 import cn.toolq.qzone.api.entity.ApiMsgPage;
 import cn.toolq.qzone.base.BaseFragment;
 import cn.toolq.qzone.common.ApiConst;
-import cn.toolq.qzone.common.GlobalObject;
 import cn.toolq.qzone.common.MsgApiUtils;
 import cn.toolq.qzone.fragment.components.MsgListOptionAdapter;
 import cn.toolq.qzone.xui.utils.Utils;
 import cn.toolq.qzone.xui.utils.XToastUtils;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
 @Page(name = "我的说说")
@@ -67,22 +61,6 @@ public class MyMsgFragment extends BaseFragment {
 
     private int currentPosition = 0;
     private int num = ApiConst.MSG_NUM;
-
-    OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .followRedirects(false)  //禁制OkHttp的重定向操作，我们自己处理重定向
-            .cookieJar(new CookieJar() {
-                @Override
-                public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-                    GlobalObject.cookieStore.put(httpUrl.host(), list);
-                }
-
-                @Override
-                public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-                    List<Cookie> cookies = GlobalObject.cookieStore.get("ptlogin2.qzone.qq.com");
-                    return cookies != null ? cookies : new ArrayList<Cookie>();
-                }
-            })
-            .build();
 
     @Override
     protected int getLayoutId() {

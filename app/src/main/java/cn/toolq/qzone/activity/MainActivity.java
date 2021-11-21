@@ -108,8 +108,8 @@ public class MainActivity extends BaseActivity implements DrawerAdapter.OnItemSe
      * 初始化Tab
      */
     private void initTab() {
-        WidgetUtils.addTabWithoutRipple(mTabLayout, "组件", SettingSPUtils.getInstance().isUseCustomTheme() ? R.drawable.custom_selector_icon_tabbar_component : R.drawable.selector_icon_tabbar_component);
-        WidgetUtils.addTabWithoutRipple(mTabLayout, "工具", SettingSPUtils.getInstance().isUseCustomTheme() ? R.drawable.custom_selector_icon_tabbar_util : R.drawable.selector_icon_tabbar_util);
+        WidgetUtils.addTabWithoutRipple(mTabLayout, "说说", SettingSPUtils.getInstance().isUseCustomTheme() ? R.drawable.custom_selector_icon_tabbar_component : R.drawable.selector_icon_tabbar_component);
+        WidgetUtils.addTabWithoutRipple(mTabLayout, "任务", SettingSPUtils.getInstance().isUseCustomTheme() ? R.drawable.custom_selector_icon_tabbar_util : R.drawable.selector_icon_tabbar_util);
         WidgetUtils.addTabWithoutRipple(mTabLayout, "拓展", SettingSPUtils.getInstance().isUseCustomTheme() ? R.drawable.custom_selector_icon_tabbar_expand : R.drawable.selector_icon_tabbar_expand);
         WidgetUtils.setTabLayoutTextFont(mTabLayout);
 

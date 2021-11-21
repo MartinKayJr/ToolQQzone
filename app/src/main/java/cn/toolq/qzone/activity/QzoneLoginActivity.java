@@ -14,8 +14,6 @@ import androidx.annotation.NonNull;
 
 import com.xuexiang.xutil.app.ActivityUtils;
 import com.xuexiang.xutil.common.StringUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.BitmapCallback;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -236,15 +234,8 @@ public class QzoneLoginActivity extends BaseActivity {
 
                                     @Override
                                     public void onResponse(Call call, Response response) throws IOException {
-                                        String uinPrefixO = CookieUtils.getCookieValue(GlobalObject.cookieStore, ApiConst.PT_LOGIN_DOMAIN, CookieKeyConst.UIN);
-                                        if (!StringUtils.isEmpty(uinPrefixO)){
-                                            UserModel.uin = Long.parseLong(uinPrefixO.replace("o", ""));
-                                        }
-                                        UserModel.userName = map.get("param5");
-                                        UserModel.sKey = skey;
-                                        UserModel.gTk = QQUtils.getGTK(skey);
                                         // 登录后的代码
-                                        loginSuccess();
+                                        loginSuccess(map);
                                     }
                                 });
                                 break;
@@ -266,7 +257,18 @@ public class QzoneLoginActivity extends BaseActivity {
         return 0;
     }
 
-    private void loginSuccess() {
+    private void loginSuccess(Map<String, String> map) {
+        String sKey = CookieUtils.getCookieValue(GlobalObject.cookieStore, ApiConst.PT_LOGIN_DOMAIN, CookieKeyConst.S_KEY);
+        String uinPrefixO = CookieUtils.getCookieValue(GlobalObject.cookieStore, ApiConst.PT_LOGIN_DOMAIN, CookieKeyConst.UIN);
+        if (!StringUtils.isEmpty(uinPrefixO)) {
+            UserModel.uin = Long.parseLong(uinPrefixO.replace("o", ""));
+        }
+        UserModel.userName = map.get("param5");
+        UserModel.sKey = sKey;
+        if (!StringUtils.isEmpty(sKey)) {
+            UserModel.gTk = QQUtils.getGTK(sKey);
+        }
+        CookieUtils.saveCookie(GlobalObject.cookieStore);
         ActivityUtils.startActivity(MainActivity.class);
         finish();
     }

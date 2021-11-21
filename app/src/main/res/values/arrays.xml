@@ -251,8 +251,8 @@
 
 
     <string-array name="menu_titles">
-        <item>组件</item>
-        <item>工具</item>
+        <item>说说</item>
+        <item>任务</item>
         <item>拓展</item>
         <item>关于</item>
         <item />

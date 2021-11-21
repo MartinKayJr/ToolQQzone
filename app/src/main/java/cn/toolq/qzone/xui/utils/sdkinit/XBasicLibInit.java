@@ -26,6 +26,7 @@ import com.xuexiang.xpage.PageConfig;
 import com.xuexiang.xrouter.launcher.XRouter;
 import cn.toolq.qzone.MyApp;
 import cn.toolq.qzone.base.BaseActivity;
+import cn.toolq.qzone.common.CookieUtils;
 import cn.toolq.qzone.xui.utils.TokenUtils;
 import cn.toolq.qzone.xui.utils.XToastUtils;
 import com.xuexiang.xutil.XUtil;
@@ -63,6 +64,7 @@ public final class XBasicLibInit {
         XUtil.init(application);
         XUtil.debug(MyApp.isDebug());
         TokenUtils.init(application);
+        CookieUtils.init(application);
     }
 
 

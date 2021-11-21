@@ -61,17 +61,22 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_delete"
-            style="@style/Button.Primary.wrap"
-            android:layout_gravity="center_vertical|end"
-            android:text="@string/lab_delete" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_submit"
-            style="@style/Button.Primary.wrap"
-            android:layout_gravity="center_vertical|end"
-            android:text="@string/lab_submit" />
+            <Button
+                android:id="@+id/btn_delete"
+                style="@style/Button.Primary.wrap"
+                android:layout_gravity="center_vertical|end"
+                android:text="@string/lab_delete" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/Button.Primary.wrap"
+                android:layout_gravity="center_vertical|end"
+                android:text="@string/lab_submit" />
+        </LinearLayout>
 
     </FrameLayout>
 

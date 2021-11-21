@@ -7,8 +7,8 @@ import com.xuexiang.xui.widget.activity.BaseSplashActivity;
 import com.xuexiang.xutil.app.ActivityUtils;
 
 import cn.toolq.qzone.R;
+import cn.toolq.qzone.common.CookieUtils;
 import cn.toolq.qzone.xui.utils.SettingSPUtils;
-import cn.toolq.qzone.xui.utils.TokenUtils;
 
 public class SplashActivity extends BaseSplashActivity {
 
@@ -45,7 +45,7 @@ public class SplashActivity extends BaseSplashActivity {
     @Override
     public void onSplashFinished() {
         if (!isDisplay) {
-            if (TokenUtils.hasToken()) {
+            if (CookieUtils.hasCookie()) {
                 ActivityUtils.startActivity(MainActivity.class);
             } else {
                 ActivityUtils.startActivity(QzoneLoginActivity.class);
